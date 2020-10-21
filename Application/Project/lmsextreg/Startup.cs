@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
@@ -14,14 +11,13 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.Hosting;
 using lmsextreg.Data;
 using lmsextreg.Services;
 using lmsextreg.Authorization;
 using lmsextreg.Authentication;
 using lmsextreg.Repositories;
 using lmsextreg.Constants;
-using Microsoft.AspNetCore.Mvc;
-using lmsextreg.Filters;
 
 namespace lmsextreg
 {
@@ -252,7 +248,7 @@ namespace lmsextreg
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {

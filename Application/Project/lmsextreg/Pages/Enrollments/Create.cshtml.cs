@@ -102,7 +102,7 @@ namespace lmsextreg.Pages.Enrollments
             
             //Console.WriteLine("SQL: ");
             //Console.WriteLine(sql);
-            var resultSet =  _context.LMSPrograms.FromSql(sql, userID).AsNoTracking();
+            var resultSet =  _context.LMSPrograms.FromSqlRaw(sql, userID).AsNoTracking();
 
             Console.WriteLine("resultSet: ");         
             Console.WriteLine(resultSet.Count());

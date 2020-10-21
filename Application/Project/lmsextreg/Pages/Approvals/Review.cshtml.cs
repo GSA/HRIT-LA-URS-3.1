@@ -119,7 +119,7 @@ namespace lmsextreg.Pages.Approvals
             /////////////////////////////////////////////////////////////////////////  
             ProgramEnrollment = null;
             ProgramEnrollment = await _dbContext.ProgramEnrollments
-                                .FromSql(sql, id, _userManager.GetUserId(User))
+                                .FromSqlRaw(sql, id, _userManager.GetUserId(User))
                                 .Include(pe => pe.LMSProgram)
                                 .Include(pe => pe.Student)
                                     .ThenInclude(s => s.SubAgency)
@@ -280,7 +280,7 @@ namespace lmsextreg.Pages.Approvals
 
             lvProgramEnrollment = null;
             lvProgramEnrollment = await _dbContext.ProgramEnrollments
-                                .FromSql(sql, programEnrollmentID, _userManager.GetUserId(User))
+                                .FromSqlRaw(sql, programEnrollmentID, _userManager.GetUserId(User))
                                 .Include(pe => pe.LMSProgram)
                                 .Include(pe => pe.EnrollmentHistory)
                                 .SingleOrDefaultAsync();
@@ -499,7 +499,7 @@ namespace lmsextreg.Pages.Approvals
         private async Task<ProgramEnrollment> retrieveProgramEnrollment(string sql, int programEnrollmentID)   
         {
             return await _dbContext.ProgramEnrollments
-                            .FromSql(sql, programEnrollmentID, _userManager.GetUserId(User))
+                            .FromSqlRaw(sql, programEnrollmentID, _userManager.GetUserId(User))
                             .Include(pe => pe.LMSProgram)
                             .Include(pe => pe.Student)
                                 .ThenInclude(s => s.SubAgency)

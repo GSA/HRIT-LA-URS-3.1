@@ -87,7 +87,7 @@ namespace lmsextreg.Pages.Enrollments
                     + " )";
              /////////////////////////////////////////////////////////////////////////        
 
-            var resultSet =  _context.LMSPrograms.FromSql(sql, userID).AsNoTracking();
+            var resultSet =  _context.LMSPrograms.FromSqlRaw(sql, userID).AsNoTracking();
             ProgramsAreAvailable = (resultSet.Count() > 0);
         }
 

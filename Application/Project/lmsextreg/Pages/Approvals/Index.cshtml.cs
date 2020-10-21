@@ -132,7 +132,7 @@ namespace lmsextreg.Pages.Approvals
 
 
                     ProgramEnrollment  = await _dbContext.ProgramEnrollments
-                                        .FromSql(sql, loggedInUserID)
+                                        .FromSqlRaw(sql, loggedInUserID)
                                         .Include( pe =>  pe.LMSProgram)
                                         .Include ( pe => pe.Student).ThenInclude(s => s.Agency)
                                         .Include( pe => pe.EnrollmentStatus)

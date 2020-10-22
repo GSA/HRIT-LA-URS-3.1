@@ -33,7 +33,6 @@ namespace lmsextreg.Pages.Admin
             public string EmailAddress { get; set; }
         }
 
-        [HttpGet]
         public void OnGet(string emailAddress = null)
         {
             string logSnippet = new StringBuilder("[")
@@ -59,7 +58,6 @@ namespace lmsextreg.Pages.Admin
             }
         }
 
-        [HttpPost]
         public IActionResult OnPostAsync(string returnUrl = null)
         {
             string logSnippet = new StringBuilder("[")

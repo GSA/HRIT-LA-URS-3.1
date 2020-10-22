@@ -266,7 +266,13 @@ namespace lmsextreg
 
             app.UseSession();
 
-            app.UseMvc();
+            //app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
+
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // LOG FILE SETUP

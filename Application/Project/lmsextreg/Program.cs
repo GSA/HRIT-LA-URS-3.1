@@ -40,7 +40,7 @@ namespace lmsextreg
                     var tempPW = config[MiscConstants.SEED_TEMP_PW];
 
                     Console.WriteLine("[Program] tempPW: " +  tempPW);
-                    DataSeed.Initialize(services, tempPW).Wait();
+                    //DataSeed.Initialize(services, tempPW).Wait();
                 }
                 catch (Exception ex)
                 {

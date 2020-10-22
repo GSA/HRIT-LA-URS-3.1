@@ -52,10 +52,14 @@ namespace lmsextreg
             // Console.WriteLine("********************************************************************************");
 
             // NOW THAT WE HAVE OUR CONNECTION STRING, WE CAN ESTABLISH OUR DB CONTEXT
-            services.AddDbContext<ApplicationDbContext>
-            (
-                options => options.UseMySQL(connectionString)
-            );
+            //services.AddDbContext<ApplicationDbContext>
+            //(
+            //    options => options.UseMySQL(connectionString)
+            //);
+
+            services.AddEntityFrameworkMySql();
+            services.AddDbContext<ApplicationDbContext>(
+                options => options.UseMySql(connectionString),  ServiceLifetime.Scoped);
 
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
@@ -250,6 +254,8 @@ namespace lmsextreg
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UsePathBase("/lms31");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -262,12 +268,14 @@ namespace lmsextreg
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
-
             app.UseSession();
 
             //app.UseMvc();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

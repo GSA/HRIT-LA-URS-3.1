@@ -1,0 +1,4 @@
+Method 'get_Info' in type 'MySql.Data.EntityFrameworkCore.Infraestructure.MySQLOptionsExtension' 
+from assembly 'MySql.Data.EntityFrameworkCore' does not have an implementation
+
+https://github.com/dotnet/efcore/issues/17788

@@ -1,5 +1,5 @@
 From the command line (Windows/Mac/Linux):
-    dotnet publish -c release -r rhel-x64
+    dotnet publish -c Release -r rhel-x64 -f netcoreapp3.1 --self-contained true
 
 From File Explorer (Windows):
     cd lmsextreg\bin\Release\netcoreapp2.1\rhel-x64\
